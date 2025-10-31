@@ -1,0 +1,30 @@
+device: "auto"   # "auto" = use GPU if available, else CPU. You may force "cpu" or "cuda".
+
+data:
+  mode: "embeddings"   # "embeddings" → fast MLP mode (CSV features)
+                      # "images"      → raw CT images + frozen SimCLR encoder
+  embeddings_path: "./embeddings/renal_embeddings.csv"
+  data_path: "/path/to/preprocessed/images/"   # used ONLY if mode="images"
+  split_path_base: "./splits/"                   # your train/test JSON splits
+
+training:
+  batch_size: 256
+  epochs: 1000
+  learning_rate: 0.0003
+  weight_decay: 0.0008
+
+model:
+  type: "mlp"            # "mlp" (Linear 512→3)
+  arch: "resnet18"       # used ONLY if mode="images"
+  embed_dim: 512
+  output_dim: 3
+
+simclr:
+  checkpoint_path: "./simclr/checkpoint_1000.pth.tar"  # used ONLY in images mode
+
+cross_validation:
+  outer_folds: 5
+  inner_folds: 5
+
+output:
+  save_dir: "./results"
