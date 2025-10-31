@@ -10,9 +10,12 @@ It supports both **image-based** and **embedding-based (MLP)** pipelines.
 
 All parameters are set in `configs/default.yaml`. Make sure to set data.mode to "embeddings" or "images" depending on which pipeline you want to run.
 
-How to Run the Code
+**How to Run the Code**
+
 Activate your environment:
+```bash
 conda activate env
+```
 Run the nested cross-validation:
 ```bash
 for fold_test in 0 1 2 3 4
