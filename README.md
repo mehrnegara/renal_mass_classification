@@ -33,15 +33,19 @@ do
     --config configs/default.yaml \
     --fold_test $fold_test
 done
+
 ---
+
 The outer loop defines the five test sets.
 The inner loop performs cross-validation for hyperparameter tuning.
 After the inner folds are done, the model is retrained on the combined train+validation data for that outer fold.
 When all folds are done, run the post-processing:
+
 ```bash
 python src/extract_logits_main.py
 python src/postprocess_all.py
 ---
+
 This will collect all predictions, compute metrics (ROC-AUC, PR-AUC, Brier score, etc.), and generate the final plots and result tables.
 
----
+
