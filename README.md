@@ -7,7 +7,7 @@ available on [MedRxiv](https://www.medrxiv.org/content/10.1101/2025.02.04.253216
 The project integrates radiological and clinical data to classify renal tumors into three categories: **Benign**, **Indolent Malignant**, and **Aggressive Malignant** using contrastive learning representations.  
 It supports both **image-based** and **embedding-based (MLP)** pipelines.
 
----
+
 All parameters are set in `configs/default.yaml`. Make sure to set data.mode to "embeddings" or "images" depending on which pipeline you want to run.
 
 How to Run the Code
@@ -44,3 +44,4 @@ python src/postprocess_all.py
 ___
 This will collect all predictions, compute metrics (ROC-AUC, PR-AUC, Brier score, etc.), and generate the final plots and result tables.
 
+---
